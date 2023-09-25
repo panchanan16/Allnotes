@@ -8,6 +8,7 @@ This a notes sharing plateform for students...
 #### 2) Inside the utils folder create a file name - firebase.key.js
 
 #### 3) Inside the firebase.key.js file create a object name (firebaseConfig) 
+       ```javascript
        // TODO: Replace the following with your app's Firebase project configuration
         const firebaseConfig = {
             apiKey: "xyz",
@@ -20,6 +21,8 @@ This a notes sharing plateform for students...
         };
         
         export default firebaseConfig;  //export the Object by default
+          
+       ```
     
 
 #### 4) start the App by using npm start.
