@@ -18,8 +18,8 @@ This a notes sharing plateform for students...
             appId: "xyz",
             measurementId: "xyz",
         };
-     
-     //export the Object by default
+        
+        export default firebaseConfig;  //export the Object by default
     
 
 #### 4) start the App by using npm start.
