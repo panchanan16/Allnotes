@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, doc, setDoc, deleteDoc, getCountFromServer, updateDoc, collectionGroup } from "firebase/firestore";
-import {firebaseConfig} from "./firebase.key.js"
+import firebaseConfig from "./firebase.key.js"
 
 
 const firebaseapp = initializeApp(firebaseConfig);
