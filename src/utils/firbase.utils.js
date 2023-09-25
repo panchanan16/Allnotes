@@ -1,16 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, doc, setDoc, deleteDoc, getCountFromServer, updateDoc, collectionGroup } from "firebase/firestore";
+import {firebaseConfig} from "./firebase.key.js"
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBXMbBzhyLwJIWWRmcz5o2fGMjSEuHwP4U",
-  authDomain: "lysite-a4792.firebaseapp.com",
-  projectId: "lysite-a4792",
-  storageBucket: "lysite-a4792.appspot.com",
-  messagingSenderId: "636044758914",
-  appId: "1:636044758914:web:6286044211f28796b7099b",
-  measurementId: "G-6SRE08KEQL",
-};
 
 const firebaseapp = initializeApp(firebaseConfig);
 export const db = getFirestore(firebaseapp);
