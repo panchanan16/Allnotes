@@ -1,19 +1,11 @@
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, doc, setDoc, deleteDoc, getCountFromServer, updateDoc, collectionGroup } from "firebase/firestore";
+import {initializeApp} from 'firebase/app';
+import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, doc, setDoc, deleteDoc, updateDoc, collectionGroup } from "firebase/firestore";
 import firebaseConfig from "./firebase.key.js"
 
 
 const firebaseapp = initializeApp(firebaseConfig);
-export const db = getFirestore(firebaseapp);
+const db = getFirestore(firebaseapp);
 
-const provider = new GoogleAuthProvider();
-
-const auth = getAuth();
-
-export function signwithgoogle() {
-  return signInWithPopup(auth, provider);
-}
 
 export async function SignUser(signupdata) {
   try {
