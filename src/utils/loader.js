@@ -1,6 +1,6 @@
 import { Watch, InfinitySpin } from 'react-loader-spinner';
 
-function Spinner(params) {
+function Spinner() {
   return (
     <Watch
       height="30"

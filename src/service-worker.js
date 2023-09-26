@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';

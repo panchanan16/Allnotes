@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||

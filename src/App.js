@@ -17,7 +17,6 @@ const Settingspage = lazy(() => import("./pages/settingspage"))
 
 function App() {
   return (
-    <>
       <CookiesProvider>
         <Suspense fallback={<TriSpinner />}>
           <Routes>
@@ -39,7 +38,6 @@ function App() {
           </Routes>
         </Suspense>
       </CookiesProvider>
-    </>
   );
 }
 

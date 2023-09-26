@@ -2,10 +2,8 @@ import {initializeApp} from 'firebase/app';
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, doc, setDoc, deleteDoc, updateDoc, collectionGroup } from "firebase/firestore";
 import firebaseConfig from "./firebase.key.js"
 
-
 const firebaseapp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseapp);
-
 
 export async function SignUser(signupdata) {
   try {
