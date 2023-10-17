@@ -2,7 +2,7 @@ import { ProductContext } from "../../context/product.context";
 import { useContext, useEffect, useState } from "react";
 import { TriSpinner } from "../../utils/loader";
 import { Context } from "../../context/context";
-import {motion } from "framer-motion"
+import {motion } from "framer-motion";
 
 function JustFilterWishlist(wishlist, product) {
   if(wishlist == ''){return  {
@@ -36,11 +36,12 @@ export default function PostDetails() {
   const productId = window.location.pathname.split('/')[3];
   const ActualProduct = curProduct.length != undefined ? curProduct.filter(p => p.id === productId) : '';
 
-  function addtocart(e) {
+  function addtocart() {
     const wishlisrArr = JustFilterWishlist(quant, ActualProduct[0])
     setcolor(wishlisrArr.added)
     setquant(wishlisrArr.list);
   }
+
   useEffect(()=>{
     colorsetting(quant, setcolor, ActualProduct[0]);
   }, [])
@@ -49,9 +50,12 @@ export default function PostDetails() {
     <>
       <motion.div className="flex xl:flex-row gap-[3rem] xl:ml-[15rem] xl:mt-[2rem] xsm:mt-[2rem] xsm:flex-col xsm:p-2" variants={{hidden: {opacity: 0, y: 80}, visible: {opacity: 1, y: 0}}} initial="hidden" animate="visible"
         transition={{duration: 0.4, delay: 0.25}}>
-        <div className="border-2 p-2 xl:w-2/4 xsm:w-full">
-          <img src="/img/slider.jpg" className="xsm:h-[12rem] w-full xl:h-[20rem]"/>
-          <button className="bg-black text-white p-2 px-5 mt-[-8rem]">View full</button>
+        <div className="border-2 p-2 xl:w-3/4 xsm:w-full">
+         {ActualProduct != ''?<img src={ActualProduct[0].name.thumbnail} className={
+            `xsm:h-[12rem] w-full xl:h-[20rem]`
+          }/> : <TriSpinner />}
+
+        <button className="bg-black text-white p-2 px-5 mt-[-8rem]">View full</button>
         </div>
         <div className="details-person"> 
           <p className="text-3xl font-bold">

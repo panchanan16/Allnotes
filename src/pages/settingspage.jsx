@@ -1,4 +1,4 @@
-import { AnimateNow } from "../utils/motion";
+// import { AnimateNow } from "../utils/motion";
 
 function Settingspage() {
     return(

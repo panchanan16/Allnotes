@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-unused-vars */
 import { maindiv, backupcss, loginbtn, inpcss } from "../components/cssf/css";
 import { useRef, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";

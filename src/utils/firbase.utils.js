@@ -1,9 +1,26 @@
 import {initializeApp} from 'firebase/app';
 import { getFirestore, collection, addDoc, query, where, getDocs, getDoc, doc, setDoc, deleteDoc, updateDoc, collectionGroup } from "firebase/firestore";
 import firebaseConfig from "./firebase.key.js"
+import { getStorage, ref, uploadBytes, getDownloadURL} from "firebase/storage";
 
 const firebaseapp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseapp);
+
+const storage = getStorage();
+
+export async function uploadMaindoc(file, filnam) {
+  try {
+    const storageRef = ref(storage, `allnotes/${filnam}`);
+    await uploadBytes(storageRef, file).then(() => {
+      console.log('Uploaded a file!');
+    });
+    const ThumbnailURL = await getDownloadURL(storageRef).then((url) => {return url;})
+    return ThumbnailURL;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 
 export async function SignUser(signupdata) {
   try {
@@ -51,7 +68,8 @@ export async function WriteDataIn(cat, catin, data) {
     stream: data.stream,
     subject : data.subject,
     title: data.title,
-    price: data.price 
+    price: data.price,
+    thumbnail : data.ThumbnailLink
 })
 }
 

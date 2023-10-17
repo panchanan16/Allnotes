@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import { useRef, useState, useContext } from 'react';
 import { WriteDataIn } from "../../utils/firbase.utils";
 import Spinner from '../../utils/loader';
 import { categoryContext } from '../../context/category.context';
 import { ProductContext } from '../../context/product.context';
+import { uploadMaindoc } from '../../utils/firbase.utils';
 
 
 function MypostForm() {
@@ -13,6 +15,7 @@ function MypostForm() {
     const subject = useRef();
     const title = useRef();
     const price = useRef();
+    const docMain = useRef();
     const [load, setload] = useState(false);
     const[close, setclose] = useState(false);
 
@@ -22,11 +25,11 @@ function MypostForm() {
 
     async function createpost() {
         setload(true);
-        const data = { name: name.current.value, stream: stream.current.value, subject: subject.current.value, title: title.current.value, price: price.current.value }
+        const ThumbnailLINK = await uploadMaindoc(docMain.current.files[0], docMain.current.files[0].name);
+        const data = { name: name.current.value, stream: stream.current.value, subject: subject.current.value, title: title.current.value, price: price.current.value, ThumbnailLink : ThumbnailLINK}
         await WriteDataIn(data.stream, 'userdata', data);
         setcallagain('call again');
         setload(false);
-
     }
     return (
         <>
@@ -42,8 +45,8 @@ function MypostForm() {
                     <input type="text" className="xl:w-[30rem] p-1 border-2" placeholder="Enter Your topic details" ref={title} />
                     <input type="text" className="xl:w-[30rem] p-1 border-2" placeholder="Enter price"
                         ref={price} />
-                    <input type="file" />
-                    <input type="file" />
+                    <input type="file" ref={docMain} /><label>Upload content</label>
+                    <input type="file" /><label>Upload Thumbnail</label>
                 </form>
                 <button className="bg-black text-white p-2 font-medium w-[6rem] hover:bg-white hover:text-black hover:border-2 mt-[1rem]" onClick={createpost}>{load ? <Spinner /> : 'Upload'}</button>
             </div>

@@ -10,7 +10,7 @@ function EachCartObject(data) {
 
     return(
         <div className="border-b-2 flex justify-between">
-        <img src="/img/slider.jpeg" className="h-[8rem] w-[10rem] p-3"/>
+        <img src={data.data.name.thumbnail} className="h-[8rem] w-[10rem] p-3"/>
         <div className="w-1/3">
             <p className="font-bold">{data.data.name.title}</p>
             <p>${data.data.name.price}</p>
